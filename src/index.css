@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.btn-primary {
+  background-color: #5a44d6;
+  border:3px solid #8271df;
+  border-radius: 8px;
+  margin: 20px 30px;
+  color: rgb(198, 255, 28);
+  font-weight: bold;
+  font-size: 3em;
+  text-transform: capitalize;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+}

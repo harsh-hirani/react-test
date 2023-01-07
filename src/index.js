@@ -11,7 +11,7 @@ function Form(){
   }
   return(
     <form onSubmit={handleSubmit}>
-      <button>click me</button>
+      <button className="btn btn-primary">click me</button>
     </form>
   );
 }
