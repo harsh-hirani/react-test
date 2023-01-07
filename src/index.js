@@ -6,14 +6,14 @@ class My extends React.Component{
    constructor(props){
      super(props);
      this.state = {};
-     this.myHandel = this.myHandel.bind(this);
+    // this.myHandel = this.myHandel.bind(this);
    }//;no need of state change
   myHandel (){console.log("this is:\n",this)};
 
   render(){
     return(
       <>
-        <button onClick={this.myHandel}>
+        <button onClick={this.myHandel.bind(this)}>
           click on
         </button>
       </>
