@@ -1,55 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-//import App from './App';
-//import reportWebVitals from './reportWebVitals';
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date:new Date()};
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+function Form(){
+  function handleSubmit(e){
+    e.preventDefault();
+    alert("Please enter");
   }
-  componentDidMount() {
-    this.timerID = setInterval(() => {
-      this.tick();
-    }, 1000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-  tick() {
-    this.setState({
-      date:new Date(),
-    });
-  }
-  render() {
-    return (
-      <>
-        <h1>Clock</h1>
-        <h2>and time is: {this.state.date.toLocaleTimeString()}</h2>
-      </>
-    )
-  }
+  return(
+    <form onSubmit={handleSubmit}>
+      <button>click me</button>
+    </form>
+  );
 }
-// (props) {
-// 
-// );
-//}
-setInterval(tick,1000)
-function tick(){
+
 root.render(
-  <div>
-    <Clock  />
-    <Clock  />
-    <Clock  />
-  </div>
-);}
+  <>
+   <Form></Form>
+  </>
+);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
