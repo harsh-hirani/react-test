@@ -1,24 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-function Form(){
-  function handleSubmit(e){
-    e.preventDefault();
-    alert("Please enter");
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {is:true};
+
+    this.handleClick = this.handleClick.bind(this);
+
   }
-  return(
-    <form onSubmit={handleSubmit}>
-      <button className="btn btn-primary">click me</button>
-    </form>
-  );
+  handleClick(){
+    this.setState(prevState => ({
+      is:!prevState.is
+    }));
+  }
+
+  render(){
+    return (
+      <>
+        <button onClick={this.handleClick}>
+          {this.state.is?'ON':'OFF'}
+        </button>
+      </>
+    )
+  }
 }
 
 root.render(
   <>
-   <Form></Form>
+    <Toggle />
   </>
 );
 // If you want to start measuring performance in your app, pass a function
