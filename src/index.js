@@ -46,6 +46,8 @@ function tick(){
 root.render(
   <div>
     <Clock  />
+    <Clock  />
+    <Clock  />
   </div>
 );}
 // If you want to start measuring performance in your app, pass a function
