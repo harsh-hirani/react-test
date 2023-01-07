@@ -1,37 +1,30 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-class Toggle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {is:true};
-
-    this.handleClick = this.handleClick.bind(this);
-
-  }
-  handleClick(){
-    this.setState(prevState => ({
-      is:!prevState.is
-    }));
-  }
+class My extends React.Component{
+   constructor(props){
+     super(props);
+     this.state = {};
+     this.myHandel = this.myHandel.bind(this);
+   }//;no need of state change
+  myHandel (){console.log("this is:\n",this)};
 
   render(){
-    return (
+    return(
       <>
-        <button onClick={this.handleClick}>
-          {this.state.is?'ON':'OFF'}
+        <button onClick={this.myHandel}>
+          click on
         </button>
       </>
-    )
+    );
   }
 }
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <Toggle />
+    <My/>
   </>
 );
 // If you want to start measuring performance in your app, pass a function
