@@ -10,17 +10,16 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //     <App />
 //   </React.StrictMode>
 // );
-function tick(){
-  const element = (
-    <div>
-      <h1>
-        time is {new  Date().toLocaleTimeString()}.
-      </h1>
-    </div>
-  );
-  root.render(element);
+function Welcome(props) {
+  return <h1>welcome, {props.name}</h1>
 }
-setInterval(tick, 1000);
+root.render(
+  <div>
+    <Welcome name="harsh"/>
+    <Welcome name="rahul"/>
+    <Welcome name="sahil"/>
+  </div>
+);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
