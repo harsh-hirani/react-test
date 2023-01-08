@@ -3,33 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-class Greet extends React.Component {
-constructor(props) {
-  super(props);
-  // this.ss = this.ss.bind(this);
-  // this.dd = this.dd.bind(this);
-  this.state = {pass:0};
+function Mailbox(p){
+const is = p.msgs;
+return(
+  <div>
+    <h1> hello there! </h1>
+      {is.length >0 &&
+        <h2>you have new {is.length}msgs</h2>
+      }
+  </div>
+)
 }
-ss = ()=>{this.setState({pass:0});}
-dd = ()=>{this.setState({pass:1});}
-  render() {
-    let btn;
-    if(this.state.pass){
- btn = <button type="button" onClick={this.ss}>hi there</button>;
- 
-}else{
-  this.msg = "log in"
-  btn = <button type="button" onClick={this.dd}>tata</button>;
-    }
-  return (
-    btn
-  );
-}
-}
-
+const arr = ['hii','byeee','just']
 root.render(
   <>
-    <Greet hey={0}/>
+    <Mailbox msgs={arr}/>
   </>
 );
 // If you want to start measuring performance in your app, pass a function
