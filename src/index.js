@@ -1,30 +1,45 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-class My extends React.Component{
-   constructor(props){
-     super(props);
-     this.state = {};
-    // this.myHandel = this.myHandel.bind(this);
-   }//;no need of state change
-  myHandel (){console.log("this is:\n",this)};
-
-  render(){
-    return(
-      <>
-        <button onClick={this.myHandel.bind(this)}>
-          click on
-        </button>
-      </>
-    );
-  }
+const root = ReactDOM.createRoot(document.getElementById('root'));
+class Greet extends React.Component {
+constructor(props) {
+  super(props);
+  this.state = {pass:0};
+}
+componentDidMount(){
+  this.stateid = setInterval(() => this.tick(),1000);
+}
+componentWillUnmount(){
+  clearInterval(this.stateid);
+}
+tick (){
+  this.setState(
+    {
+      pass: !this.state.pass
+    }
+  );
+  console.log(this.state.pass);
+}
+msg = '';
+  render() {
+    if(this.state.pass){
+ this.msg = "hi welcome"
+    }else{
+ this.msg = "log in"
+    }
+  return (
+    <>
+      <h1>{this.msg}</h1>
+    </>
+  );
+}
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <My/>
+    <Greet hey={0}/>
   </>
 );
 // If you want to start measuring performance in your app, pass a function
