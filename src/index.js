@@ -6,33 +6,23 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 class Greet extends React.Component {
 constructor(props) {
   super(props);
+  // this.ss = this.ss.bind(this);
+  // this.dd = this.dd.bind(this);
   this.state = {pass:0};
 }
-componentDidMount(){
-  this.stateid = setInterval(() => this.tick(),1000);
-}
-componentWillUnmount(){
-  clearInterval(this.stateid);
-}
-tick (){
-  this.setState(
-    {
-      pass: !this.state.pass
-    }
-  );
-  console.log(this.state.pass);
-}
-msg = '';
+ss = ()=>{this.setState({pass:0});}
+dd = ()=>{this.setState({pass:1});}
   render() {
+    let btn;
     if(this.state.pass){
- this.msg = "hi welcome"
-    }else{
- this.msg = "log in"
+ btn = <button type="button" onClick={this.ss}>hi there</button>;
+ 
+}else{
+  this.msg = "log in"
+  btn = <button type="button" onClick={this.dd}>tata</button>;
     }
   return (
-    <>
-      <h1>{this.msg}</h1>
-    </>
+    btn
   );
 }
 }
