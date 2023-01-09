@@ -1,25 +1,30 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
 import './index.css';
-class Page extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-
-    }
-    arry = [0,454,5545,54,5,545,4];
-    render() {
-        return (
-            <>
-            {this.arry.map((e)=>{return(<li key={e.toString()}>{e+1}</li>)})}
-            </>
-        );
-    }
+function Item (props) {
+    const value = props.value;
+    return(
+        <li key={value.toString()}>
+            {value}
+        </li>
+    )
+}
+function List(props) {
+    const nums = props.nums;
+    const items = nums.map((umber)=>{
+        return <Item value={umber}/>
+    })
+    return(
+        <ul>
+            {items}
+        </ul>
+    )
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
+let arry = [1,2,3,4,5];
 root.render(
   <>
-    <Page/>
+    <List nums={arry} />
   </>
 );
 // If you want to start measuring performance in your app, pass a function
