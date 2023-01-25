@@ -1,44 +1,39 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-const root = ReactDOM.createRoot(document.getElementById("root"));
-class Mmyy extends React.Component {
+import React from "react";
+import ReactDOM from 'react-dom/client';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            eas:"write here...",
-            name:"john doe"
-        };
-        this.myclick = this.myclick.bind(this);
-        this.myhandle1 = this.myhandle1.bind(this);
-        this.myhandle2 = this.myhandle2.bind(this);
+        this.state = {val:"lime"};
+        this.handle = this.handle.bind(this);
+        this.up = this.up.bind(this);
     }
-    myclick(event){
-        alert("hello"+this.state.name+"! you wrote : "+this.state.eas);
+    handle(event){
+        alert(this.state.val);
         event.preventDefault();
     }
-    myhandle1(event){
-        this.setState({name:event.target.value});
-    }
-    myhandle2(event){
-        this.setState({eas:event.target.value});
+    up(event){
+        this.setState({val:event.target.value});
     }
     render() {
         return (
             <>
-            <form onSubmit={this.myclick}>
-                <label>Name
-                    <input type="text" value={this.state.name} name="name" onChange={this.myhandle1}/>
-                </label>
-                <label>write
-                    <textarea  name="wrt" value={this.state.eas} onChange={this.myhandle2}/>
-                </label>
-                <input type="submit" value="submit"/>
-            </form>
+                <form onSubmit={this.handle}>
+                    <label>
+                        <select value={this.state.val} onChange={this.up}>
+                            <option value="grapefruit">Grapefruit</option>
+                            <option value="lime">Lime</option>
+                            <option value="coconut">Coconut</option>
+                            <option value="mango">Mango</option>
+                        </select>
+                    </label>
+                    <input type="submit" value="Submit"/>
+                </form>
             </>
         )
     }
 }
-root.render(<Mmyy/>)
+root.render(<App/>);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
